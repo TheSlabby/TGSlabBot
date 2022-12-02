@@ -27,6 +27,7 @@ class Bot:
 
         return updates
     
+    # listen for commands (sorry telegram servers)
     def listen(self):
         while True:
             updates = self.get_updates()
@@ -37,8 +38,6 @@ class Bot:
                         if message['text'].startswith(command):
                             callback(self, message)
                             break
-                else:
-                    print('Unknown update:', update)
             
             #dont overload server
             time.sleep(1)
